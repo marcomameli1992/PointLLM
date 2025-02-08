@@ -41,7 +41,7 @@ def init_model(args):
     logging.warning(f'Model name: {os.path.basename(model_name)}')
 
     tokenizer = AutoTokenizer.from_pretrained(model_name)
-    model = PointLLMLlamaForCausalLM.from_pretrained(model_name, low_cpu_mem_usage=False, use_cache=True).cuda()
+    model = PointLLMLlamaForCausalLM.from_pretrained(model_name, low_cpu_mem_usage=False, use_cache=True, torch_dtype=args.torch_dtype).cuda()
     model.initialize_tokenizer_point_backbone_config_wo_embedding(tokenizer)
 
     model.eval()
@@ -358,6 +358,8 @@ if __name__ == "__main__":
 
     parser.add_argument("--data_path", type=str, default="data/objaverse_data", required=False)
     parser.add_argument("--pointnum", type=int, default=8192)
+    
+    parser.add_argument("--torch_dtype", type=str, default="float16", choices=["float32", "float16", "bfloat16"])
 
     parser.add_argument("--log_file", type=str, default="serving_workdirs/serving_log.txt")
     parser.add_argument("--tmp_dir", type=str, default="serving_workdirs/tmp")
@@ -366,6 +368,14 @@ if __name__ == "__main__":
     parser.add_argument("--port", type=int, default=7810)
 
     args = parser.parse_args()
+    
+    dtype_mapping = {
+        "float32": torch.float32,
+        "float16": torch.float16,
+        "bfloat16": torch.bfloat16,
+    }
+
+    args.torch_dtype = dtype_mapping[args.torch_dtype]
     
     # * make serving dirs
     os.makedirs(os.path.dirname(args.log_file), exist_ok=True)
