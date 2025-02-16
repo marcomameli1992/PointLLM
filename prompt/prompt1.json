@@ -1,0 +1,5 @@
+{
+    "prompt": "Given a free-form description of a 3D object related to cultural heritage, classify it into one of the two available categories: [0, 1]. If the description does not clearly match a category, make an educated guess. If multiple valid indices exist, randomly select one and justify your choice. If no valid index is inferable, return 'Cannot infer'.\n\nRespond in the format: index#class#short reason (max 10 words).",
+    "categories": ["column", "door/window"],
+    "reply_format": "index#class#short reason (max 10 words)"
+}

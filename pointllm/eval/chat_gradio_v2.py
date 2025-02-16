@@ -31,7 +31,7 @@ def change_input_method(input_method):
         gr.update(visible=True)]
     return result
 
-def init_model(args):
+def init_model(args, prompt_template="vicuna_v1_1"):
     # Model
     disable_torch_init()
     model_name = os.path.expanduser(args.model_name)
@@ -50,7 +50,7 @@ def init_model(args):
     # Add special tokens ind to model.point_config
     point_backbone_config = model.get_model().point_backbone_config
     
-    conv = conv_templates["vicuna_v1_1"].copy()
+    conv = conv_templates[prompt_template].copy()
 
     stop_str = conv.sep if conv.sep_style != SeparatorStyle.TWO else conv.sep2
     keywords = [stop_str]

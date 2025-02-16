@@ -1,0 +1,18 @@
+{
+    "prompt": "Classify this architectural subpart, coming from a {context}, into one of the following classes: [\"decoration\", \"arch\", \"column\", \"roof\", \"floor\", \"door/window\", \"wall\", \"stairs\", \"vault\"].\n\nThese are the class descriptions, specifically tailored for architectural elements:\n\n"
+              "- **decoration**: Ornamental elements enhancing aesthetic appeal, including sculptures, carvings, frescoes, and mosaics, often found on walls, ceilings, or structural elements like columns and arches.\n"
+              "- **arch**: A curved structural element that spans an opening and distributes weight above it. Commonly used in doorways, windows, or arcades, and can be plain or intricately carved.\n"
+              "- **column**: A vertical, cylindrical structural element supporting architectural components like arches or roofs. Often adorned with capitals (Doric, Ionic, Corinthian) and fluting, found in porticos and cloisters.\n"
+              "- **roof**: The upper covering of a building, protecting it from the elements. Roofs may be sloped, flat, or domed, and often feature decorative elements like tiles, statues, or spires.\n"
+              "- **floor**: The horizontal surface people walk on, made of stone, wood, or tiles. Often features decorative mosaics or symbolic patterns, especially in religious buildings.\n"
+              "- **door/window**: Openings in walls for access, light, or ventilation. Doors are often wooden or metal with carvings, while windows may include stone or wooden frames with stained glass.\n"
+              "- **wall**: A vertical structural element that encloses or divides spaces. Walls can be plain or decorated with frescoes, reliefs, or inscriptions, and may include niches or altars.\n"
+              "- **stairs**: A series of steps connecting different building levels, made of stone, wood, or metal. They may be straight, spiral, or curved and can feature decorative railings.\n"
+              "- **vault**: A curved architectural structure forming the ceiling or roof, common in churches. Vaults can be barrel-shaped, groin-shaped, or ribbed and often include frescoes or sculptural details.\n\n"
+              "### Instructions:\n"
+              "Analyze the architectural element and provide a direct classification as **predicted_class**.\n",
+    "categories": [
+        "decoration", "arch", "column", "roof", "floor", "door/window", "wall", "stairs", "vault"
+    ],
+    "reply_format": "predicted_class"
+}
