@@ -353,8 +353,7 @@ if __name__ == "__main__":
     # ! Please check 1. the lanuch dir 2. the tmp dir (GRADIO_TEMP_DIR)
     # ! refer to https://www.gradio.app/guides/sharing-your-app#security-and-file-access
     parser = argparse.ArgumentParser()
-    parser.add_argument("--model-name", type=str, \
-         default="RunsenXu/PointLLM_7B_v1.2")
+    parser.add_argument("--model-name", type=str, default="RunsenXu/PointLLM_7B_v1.2")
     
     #TODO aggiungere il comand promp per passarlo di default
 
@@ -368,9 +367,6 @@ if __name__ == "__main__":
 
     # For gradio
     parser.add_argument("--port", type=int, default=7810)
-    
-    # For prompt
-    parser.add_argument("--prompt", type=str, default="/mnt/l/PointLLM/original/PointLLM/prompt/prompt2.json")
 
     args = parser.parse_args()
     
