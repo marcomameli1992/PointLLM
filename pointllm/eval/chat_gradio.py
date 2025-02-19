@@ -140,7 +140,10 @@ def start_conversation(args, model, tokenizer, point_backbone_config, keywords, 
                     color_data = colors.astype(int)
             else:
                 color_data = np.zeros_like(points).astype(int)  # Default to black color if RGB information is not available
-            colors = color_data.astype(np.float32) / 255 # model input is (0-1)
+            if args.torch_dtype == torch.float16:
+                color_data = color_data.astype(np.float16) / 255 # model input is (0-1)
+            else:
+                colors = color_data.astype(np.float32) / 255 # model input is (0-1)
 
             # Convert the RGB color data to a list of RGB strings in the format 'rgb(r, g, b)'
             color_strings = ['rgb({},{},{})'.format(r, g, b) for r, g, b in color_data]
