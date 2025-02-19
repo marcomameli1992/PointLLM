@@ -27,6 +27,8 @@ WORKDIR /app/PointLLM
 # Verifica che il file pyproject.toml esista
 RUN ls -l /app/PointLLM
 
+COPY pyproject.toml ./
+
 # Installa le dipendenze usando Poetry
 RUN poetry install --no-root
 RUN python3 -m pip install --upgrade pip
