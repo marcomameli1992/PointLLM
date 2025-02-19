@@ -19,7 +19,7 @@ RUN curl -sSL https://install.python-poetry.org | python3 -
 ENV PATH="/root/.local/bin:$PATH"
 
 # Clona il repository PointLLM
-RUN git clone https://github.com/marcomameli1992/PointLLM.git /app/PointLLM
+#RUN git clone https://github.com/marcomameli1992/PointLLM.git /app/PointLLM
 
 # Imposta la directory di lavoro corretta
 WORKDIR /app/PointLLM
