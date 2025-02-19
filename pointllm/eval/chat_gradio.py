@@ -170,7 +170,7 @@ def start_conversation(args, model, tokenizer, point_backbone_config, keywords, 
             if 8192 < points.shape[0]:
                 points = farthest_point_sample(points, 8192)
             point_clouds = pc_norm(points)
-            point_clouds = torch.from_numpy(point_clouds).unsqueeze_(0).to(torch.float32).cuda()
+            point_clouds = torch.from_numpy(point_clouds).unsqueeze_(0).to(args.torch_dtype).cuda()
             
             answer_time = 0
             conv.reset()
